@@ -26,20 +26,19 @@ Portanto, o **meu_arquivo1.o** produzido após a operação acima seria um **arq
 
 ### 2\. Shared object file
 
-This type of object file is used by the dynamic linker to combine it with the executable and/or other shared object files to create a complete process image. In a layman’s term, a shared object file is same as the .so file produced when the code is compiled with the -fPIC flag in the following way :
+Este tipo de arquivo de objeto é usado pelo vinculador dinâmico para:
 
-<center>
+*. combiná-lo com o executável;
+*. combiná-lo com o executável e outros arquivos de objeto compartilhado;
 
-<div style="margin-left:2px; margin-top:10px; margin-bottom:10px; "><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8090601437064582" data-ad-slot="8643685131" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_1_expand" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_1_anchor" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:300px;height:250px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="250" frameborder="0" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-8090601437064582&amp;output=html&amp;h=250&amp;slotname=8643685131&amp;adk=199512932&amp;adf=2724061613&amp;pi=t.ma~as.8643685131&amp;w=300&amp;lmt=1635438670&amp;psa=1&amp;format=300x250&amp;url=https%3A%2F%2Fwww.thegeekstuff.com%2F2012%2F07%2Felf-object-file-format%2F&amp;flash=0&amp;wgl=1&amp;uach=WyJMaW51eCIsIjUuMTAuMCIsIng4NiIsIiIsIjk0LjAuNDYwNi44MSIsW10sbnVsbCxudWxsLCI2NCJd&amp;tt_state=W3siaXNzdWVyT3JpZ2luIjoiaHR0cHM6Ly9hdHRlc3RhdGlvbi5hbmRyb2lkLmNvbSIsInN0YXRlIjo3fV0.&amp;dt=1635438674739&amp;bpp=4&amp;bdt=4342&amp;idt=959&amp;shv=r20211026&amp;mjsv=m202110200101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D93a9c0d33dcf8845-228e4c15367b0012%3AT%3D1634937874%3ART%3D1634937874%3AS%3DALNI_MZHZkzZSJGdkmYUezF4tmaZ7SNfIQ&amp;prev_fmts=728x90%2C300x250%2C0x0&amp;nras=1&amp;correlator=5464857368937&amp;frm=20&amp;pv=1&amp;ga_vid=1509511693.1634937872&amp;ga_sid=1635438676&amp;ga_hid=1027315341&amp;ga_fc=1&amp;u_tz=-180&amp;u_his=1&amp;u_h=768&amp;u_w=1366&amp;u_ah=708&amp;u_aw=1366&amp;u_cd=24&amp;adx=355&amp;ady=1329&amp;biw=1351&amp;bih=603&amp;scr_x=0&amp;scr_y=0&amp;eid=31062944%2C21065724%2C21067496&amp;oid=2&amp;psts=AGkb-H8xwsn8bs27rt1fuP1Oi5D_F54ZRmj51NlWZzdAHl6IkoSRATxwDmotYYNc_U84mwAQjM2wDCSrNWGXDPDQ%2CAGkb-H_GP1VPqyUcPNjlo2P_ppKZmROLEwteA9lwwEaCDIckQjKb8ojfR5B8baEFSUxUz9JlpE0FHmAHCAA70zpsdg&amp;pvsid=3850311133106528&amp;pem=986&amp;ref=https%3A%2F%2Fwww.thegeekstuff.com%2F2012%2F09%2Fobjdump-examples%2F&amp;eae=0&amp;fc=896&amp;brdim=0%2C0%2C0%2C0%2C1366%2C31%2C0%2C0%2C1366%2C603&amp;vis=1&amp;rsz=%7C%7CeEbr%7C&amp;abl=CS&amp;pfx=0&amp;fu=0&amp;bc=31&amp;ifi=2&amp;uci=a!2&amp;btvi=1&amp;fsb=1&amp;xpc=IjxICoffsS&amp;p=https%3A//www.thegeekstuff.com&amp;dtd=5266" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!2" data-google-query-id="CMLw3OzD7fMCFU5-Ygodz9EBhw" data-load-complete="true"></iframe></ins></ins></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-
-</center>
+Tudo isso para criar uma imagem de processo completa. Para um leigo, um **arquivo de objeto compartilhado** é igual ao arquivo ".so" produzido quando o código é **compilado com o sinalizador -fPIC** da seguinte maneira:
 
 ```bash
-gcc -c -Wall -Werror -fPIC shared.c
-gcc -shared -o libshared.so shared.o
+gcc -c -Wall -Werror -fPIC meu_arquivo2.c
+gcc -shared -o libmeu_arquivo2.so meu_arquivo2.o
 ```
 
-After the above two commands are done, a shared object file libshared.o is produced as output.
+Depois que os dois comandos acima são executados, um arquivo de objeto compartilhado **libmeu_arquivo2.so** é produzido como saída.
 
 NOTE: To know more about Linux shared libraries, refer to our article [Linux shared libraries](https://www.thegeekstuff.com/2012/06/linux-shared-libraries/)
 
