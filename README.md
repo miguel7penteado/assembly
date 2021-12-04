@@ -9,6 +9,9 @@
 | Netwide Assembler (NASM)         | DOS/Windows/Linux   | 64-bit output        | x86         | Intel variante |
 | GCC (GAS)                        | Linux               | 64-bit output        | x86         | AT&T           |
 
+
+# Referências:
+
 [https://handwiki.org/wiki/Software:VxD](https://handwiki.org/wiki/Software:VxD)
 
 [https://www-user.tu-chemnitz.de/~heha/vxd/vxd_fra.htm](https://www-user.tu-chemnitz.de/~heha/vxd/vxd_fra.htm)
